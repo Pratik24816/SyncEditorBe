@@ -168,7 +168,7 @@ mongoose.connect(MONGO_URI, {
 
 const server = http.createServer(app);
 const io = new Server(server, {
-    cors: { origin: "*", methods: ["GET", "POST"] }
+    cors: { origin: "https://synceditorfe.onrender.com", methods: ["GET", "POST"] }
 });
 
 app.use("/api", actionRoutes); // ✅ Add API route
@@ -270,5 +270,3 @@ async function findOrCreateDoc(id) {
     if (document) return document;
     return await Document.create({ _id: id, data: {}, updates: [] });
 }
-
-server.listen(5000, () => console.log(`🚀 Server running on port 5000`));
