@@ -270,3 +270,6 @@ async function findOrCreateDoc(id) {
     if (document) return document;
     return await Document.create({ _id: id, data: {}, updates: [] });
 }
+const PORT = 5000; // ✅ Hardcoded Port
+
+server.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
